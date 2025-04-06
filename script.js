@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const scriptureSection = document.getElementById('scripture');
   const meditationSection = document.getElementById('meditation');
   const closingSection = document.getElementById('closing');
+
+
   if (!startButton || !nextScriptureButton || !nextMeditationButton || !returnStartButton) {
     console.error('One or more buttons not found.');
     return;
@@ -17,12 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('One or more sections not found.');
     return;
   }
+
   function hideAllSections() {
     introSection.classList.remove('active');
     scriptureSection.classList.remove('active');
     meditationSection.classList.remove('active');
     closingSection.classList.remove('active');
   }
+
 
   function showSection(section) {
     section.classList.add('active');
@@ -33,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hideAllSections();
     showSection(scriptureSection);
   });
+
 
   nextScriptureButton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -45,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     hideAllSections();
     showSection(closingSection);
   });
+
 
   returnStartButton.addEventListener('click', function (e) {
     e.preventDefault();
