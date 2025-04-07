@@ -3,14 +3,22 @@ document.addEventListener('DOMContentLoaded', function () {
   const nextScriptureButton = document.getElementById('next-scripture');
   const nextMeditationButton = document.getElementById('next-meditation');
   const returnStartButton = document.getElementById('return-start');
+  const prevButton = document.getElementById('prev-button');
+  const nextButton = document.getElementById('next-button');
 
   const introSection = document.getElementById('intro');
   const scriptureSection = document.getElementById('scripture');
   const meditationSection = document.getElementById('meditation');
   const closingSection = document.getElementById('closing');
+  const sections = [introSection, scriptureSection, meditationSection, closingSection];
+  let currentSectionIndex = 0;
 
+  function showCurrentSection() {
+    hideAllSections();
+    showSection(sections[currentSectionIndex]);
+  }
 
-  if (!startButton || !nextScriptureButton || !nextMeditationButton || !returnStartButton) {
+  if (!startButton || !nextScriptureButton || !nextMeditationButton || !returnStartButton || !prevButton || !nextButton) {
     console.error('One or more buttons not found.');
     return;
   }
@@ -27,7 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
     closingSection.classList.remove('active');
   }
 
-
   function showSection(section) {
     section.classList.add('active');
   }
@@ -37,7 +44,6 @@ document.addEventListener('DOMContentLoaded', function () {
     hideAllSections();
     showSection(scriptureSection);
   });
-
 
   nextScriptureButton.addEventListener('click', function (e) {
     e.preventDefault();
@@ -51,10 +57,23 @@ document.addEventListener('DOMContentLoaded', function () {
     showSection(closingSection);
   });
 
-
   returnStartButton.addEventListener('click', function (e) {
     e.preventDefault();
     hideAllSections();
     showSection(introSection);
+  });
+
+  nextButton.addEventListener('click', function () {
+    if (currentSectionIndex < sections.length - 1) {
+      currentSectionIndex++;
+      showCurrentSection();
+    }
+  });
+
+  prevButton.addEventListener('click', function () {
+    if (currentSectionIndex > 0) {
+      currentSectionIndex--;
+      showCurrentSection();
+    }
   });
 });

@@ -139,3 +139,26 @@ footer a:hover {
     font-size: 1em;
   }
 }
+
+.nav-buttons {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-buttons button {
+  background-color: #6c8b3b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #58742e;
+}
