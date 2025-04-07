@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
   const startButton = document.getElementById('start-retreat');
-  const nextScriptureButton = document.getElementById('next-scripture');
-  const nextMeditationButton = document.getElementById('next-meditation');
-  const returnStartButton = document.getElementById('return-start');
-  const prevButton = document.getElementById('prev-button');
   const nextButton = document.getElementById('next-button');
+  const prevButton = document.getElementById('prev-button');
+  const returnStartButton = document.getElementById('return-start');
 
   const introSection = document.getElementById('intro');
   const scriptureSection = document.getElementById('scripture');
@@ -18,7 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
     showSection(sections[currentSectionIndex]);
   }
 
-  if (!startButton || !nextScriptureButton || !nextMeditationButton || !returnStartButton || !prevButton || !nextButton) {
+  function hideAllSections() {
+    sections.forEach(section => section.classList.remove('active'));
+  }
+
+  function showSection(section) {
+    section.classList.add('active');
+  }
+
+  if (!startButton || !nextButton || !prevButton || !returnStartButton) {
     console.error('One or more buttons not found.');
     return;
   }
@@ -28,39 +34,19 @@ document.addEventListener('DOMContentLoaded', function () {
     return;
   }
 
-  function hideAllSections() {
-    introSection.classList.remove('active');
-    scriptureSection.classList.remove('active');
-    meditationSection.classList.remove('active');
-    closingSection.classList.remove('active');
-  }
-
-  function showSection(section) {
-    section.classList.add('active');
-  }
 
   startButton.addEventListener('click', function (e) {
     e.preventDefault();
     hideAllSections();
     showSection(scriptureSection);
-  });
-
-  nextScriptureButton.addEventListener('click', function (e) {
-    e.preventDefault();
-    hideAllSections();
-    showSection(meditationSection);
-  });
-
-  nextMeditationButton.addEventListener('click', function (e) {
-    e.preventDefault();
-    hideAllSections();
-    showSection(closingSection);
+    currentSectionIndex = 1;
   });
 
   returnStartButton.addEventListener('click', function (e) {
     e.preventDefault();
     hideAllSections();
     showSection(introSection);
+    currentSectionIndex = 0;
   });
 
   nextButton.addEventListener('click', function () {
@@ -76,4 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
       showCurrentSection();
     }
   });
+
+  showCurrentSection();
 });
