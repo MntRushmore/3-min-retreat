@@ -59,18 +59,20 @@ p {
 }
 
 a.btn {
-  display: inline-block;
-  padding: 12px 30px;
+  padding: 10px 30px;
   background-color: #6c8b3b;
   color: #fff;
   font-size: 1.2em;
   text-decoration: none;
   border-radius: 25px;
   transition: background-color 0.3s ease;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 a.btn:hover {
-  background-color: #556d29;
+  background-color: #58742e;
 }
 
 .retreat-step {
