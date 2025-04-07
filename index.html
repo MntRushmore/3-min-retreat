@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3-Minute Retreat</title>
+  <title>3-Minute Retreat</title> 
   <link rel="stylesheet" href="/s/retreat/styles.css">
 </head>
 <body>
@@ -11,6 +11,8 @@
     <header>
       <h1>Enjoy God's Goodness</h1>
       <p>A short retreat for your soul</p>
+      <a href="#" id="notification-button">Get a Daily Calm Reminder</a>
+      <a href="#" id="favorite-part-button">Save a Favorite Part</a>
     </header>
     <section id="intro" class="retreat-step active">
       <h2>Welcome</h2>
@@ -25,22 +27,36 @@
       <h2>Scripture Reflection</h2>
       <p>"The Lord is good to all; he has compassion on all he has made." – Psalm 145:9</p>
       <p>Pause and reflect: How has God been good to you today? Take a moment to acknowledge His love and care for you.</p>
-      <a href="#" id="next-scripture" class="btn">Proceed to Meditation</a>
+      <div class="nav-arrows">
+        <a href="#" id="prev-step" class="arrow">&larr;</a>
+        <a href="#" id="next-step" class="arrow">&rarr;</a>
+      </div>
     </section>
 
     <section id="meditation" class="retreat-step">
       <h2>Time for Reflection</h2>
       <p>Set aside all distractions for the next few moments. Allow yourself to feel the peace and presence of God. Focus on His goodness.</p>
-      <a href="#" id="next-meditation" class="btn">Closing Thoughts</a>
+      <div class="nav-arrows">
+        <a href="#" id="prev-step" class="arrow">&larr;</a>
+        <a href="#" id="next-step" class="arrow">&rarr;</a>
+      </div>
     </section>
 
     <section id="closing" class="retreat-step">
       <h2>Closing Thoughts</h2>
       <p>As you close this retreat, take with you the reminder of God's constant goodness. May His peace fill your heart.</p>
-      <a href="#" id="return-start" class="btn">Return to Start</a>
+      <div class="nav-arrows">
+        <a href="#" id="prev-step" class="arrow">&larr;</a>
+        <a href="#" id="next-step" class="arrow">&rarr;</a>
+      </div>
     </section>
+
+    <div id="music-container">
+      <button id="play-pause-button">Play</button>
+      <audio id="background-music" loop src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"></audio>
+    </div>
   </div>
-    
-    <script src="/s/retreat/script.js"></script>
+
+  <script src="/s/retreat/script.js"></script>
 </body>
 </html>
